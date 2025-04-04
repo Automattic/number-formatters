@@ -10,6 +10,7 @@ This is an alpha version! The changes listed here are not final.
 
 ### Added
 - initial release
+- introduce fallback locale logic
 
 ### Changed
 - Update package dependencies.

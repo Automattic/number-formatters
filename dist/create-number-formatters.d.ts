@@ -7,9 +7,9 @@ export interface NumberFormatters {
     setLocale(locale: string): void;
     /**
      * Sets the user's geo location for currency formatting if available
-     * @param newGeoLocation - The geo location to use for formatting
+     * @param geoLocation - The geo location to use for formatting
      */
-    setGeoLocation(newGeoLocation: string): void;
+    setGeoLocation(geoLocation: string): void;
     /**
      * Formats numbers using locale settings and/or passed options.
      * @param  number                     - The number to format.
