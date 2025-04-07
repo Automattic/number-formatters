@@ -15,6 +15,9 @@ This is an alpha version! The changes listed here are not final.
 ### Changed
 - Update package dependencies.
 
+### Fixed
+- Fixed TS type checking in the monorepo
+
 ## 0.1.0 - 2025-03-18
 ### Added
 - Initial release
