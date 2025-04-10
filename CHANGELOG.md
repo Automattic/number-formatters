@@ -12,6 +12,10 @@ This is an alpha version! The changes listed here are not final.
 - Adjust relative imports in TypeScript sources to use correct extensions after enabling TypeScript's new `rewriteRelativeImportExtensions` option. The built JS should be unaffected, so this is not a breaking change.
 - Convert build to common-js
 
+## [1.0.0-alpha.1] - 2025-04-10
+### Changed
+- Internal updates.
+
 ## [1.0.0-alpha.1] - 2025-04-07
 ### Added
 - initial release [#42639]
