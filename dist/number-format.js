@@ -1,4 +1,7 @@
-import { getCachedFormatter } from "./get-cached-formatter.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.numberFormatCompact = exports.numberFormat = void 0;
+const get_cached_formatter_ts_1 = require("./get-cached-formatter.js");
 /**
  * Formats numbers using locale settings and/or passed options.
  * @param  params                     - The parameters for the number formatter.
@@ -33,8 +36,9 @@ const numberFormat = ({ browserSafeLocale, decimals = 0, forceLatin = true, numb
         maximumFractionDigits: decimals, // maximumFractionDigits default is the greater between minimumFractionDigits and 3
         ...numberFormatOptions,
     };
-    return getCachedFormatter({ locale, options });
+    return (0, get_cached_formatter_ts_1.getCachedFormatter)({ locale, options });
 };
+exports.numberFormat = numberFormat;
 /**
  * Convenience method for formatting numbers in a compact notation e.g. 1K, 1M, etc.
  * Basically sets `notation: 'compact'` and `maximumFractionDigits: 1` in the options.
@@ -52,4 +56,4 @@ const numberFormatCompact = ({ numberFormatOptions = {}, ...params }) => numberF
         ...numberFormatOptions,
     },
 });
-export { numberFormat, numberFormatCompact };
+exports.numberFormatCompact = numberFormatCompact;

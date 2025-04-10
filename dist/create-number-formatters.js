@@ -1,7 +1,9 @@
-import { getSettings } from '@wordpress/date';
-import { FALLBACK_LOCALE } from "./constants.js";
-import { numberFormatCurrency, getCurrencyObject as getCurrencyObjectFromCurrencyFormatter, } from "./number-format-currency/index.js";
-import { numberFormat, numberFormatCompact } from "./number-format.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const date_1 = require("@wordpress/date");
+const constants_ts_1 = require("./constants.js");
+const index_ts_1 = require("./number-format-currency/index.js");
+const number_format_ts_1 = require("./number-format.js");
 /**
  * Creates a NumberFormatters instance that provides number and currency formatting functionality with locale awareness
  * @return {NumberFormatters} A NumberFormatters instance
@@ -29,17 +31,17 @@ function createNumberFormatters() {
      * @return {string} The locale to use for formatting.
      */
     const getBrowserSafeLocale = () => {
-        const { l10n: { locale: localeFromUserSettings }, } = getSettings();
+        const { l10n: { locale: localeFromUserSettings }, } = (0, date_1.getSettings)();
         return (localeState ??
             (localeFromUserSettings || global?.window?.navigator?.language) ??
-            FALLBACK_LOCALE).split('_')[0];
+            constants_ts_1.FALLBACK_LOCALE).split('_')[0];
     };
     const setGeoLocation = (geoLocation) => {
         geoLocationState = geoLocation;
     };
     const formatNumber = (number, { decimals = 0, forceLatin = true, numberFormatOptions = {} } = {}) => {
         try {
-            const formatter = numberFormat({
+            const formatter = (0, number_format_ts_1.numberFormat)({
                 browserSafeLocale: getBrowserSafeLocale(),
                 decimals,
                 forceLatin,
@@ -53,7 +55,7 @@ function createNumberFormatters() {
     };
     const formatNumberCompact = (number, { decimals = 0, forceLatin = true, numberFormatOptions = {} } = {}) => {
         try {
-            const formatter = numberFormatCompact({
+            const formatter = (0, number_format_ts_1.numberFormatCompact)({
                 browserSafeLocale: getBrowserSafeLocale(),
                 decimals,
                 forceLatin,
@@ -66,7 +68,7 @@ function createNumberFormatters() {
         }
     };
     const formatCurrency = (number, currency, { stripZeros = false, isSmallestUnit = false, signForPositive = false, forceLatin = true } = {}) => {
-        return numberFormatCurrency({
+        return (0, index_ts_1.numberFormatCurrency)({
             number,
             currency,
             browserSafeLocale: getBrowserSafeLocale(),
@@ -78,7 +80,7 @@ function createNumberFormatters() {
         });
     };
     const getCurrencyObject = (number, currency, { stripZeros = false, isSmallestUnit = false, signForPositive = false, forceLatin = true } = {}) => {
-        return getCurrencyObjectFromCurrencyFormatter({
+        return (0, index_ts_1.getCurrencyObject)({
             number,
             currency,
             browserSafeLocale: getBrowserSafeLocale(),
@@ -98,4 +100,4 @@ function createNumberFormatters() {
         getCurrencyObject,
     };
 }
-export default createNumberFormatters;
+exports.default = createNumberFormatters;

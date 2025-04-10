@@ -1,4 +1,7 @@
-export const defaultCurrencyOverrides = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.defaultCurrencyOverrides = void 0;
+exports.defaultCurrencyOverrides = {
     AED: {
         symbol: 'د.إ.‏',
     },

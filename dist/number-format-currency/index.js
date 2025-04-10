@@ -1,8 +1,14 @@
-import debugFactory from 'debug';
-import { FALLBACK_CURRENCY } from "../constants.js";
-import { getCachedFormatter } from "../get-cached-formatter.js";
-import { defaultCurrencyOverrides } from "./currencies.js";
-const debug = debugFactory('number-formatters:number-format-currency');
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCurrencyObject = exports.numberFormatCurrency = void 0;
+const debug_1 = __importDefault(require("debug"));
+const constants_ts_1 = require("../constants.js");
+const get_cached_formatter_ts_1 = require("../get-cached-formatter.js");
+const currencies_ts_1 = require("./currencies.js");
+const debug = (0, debug_1.default)('number-formatters:number-format-currency');
 /**
  * Retrieves the currency override for a given currency.
  * If the currency is USD and the user is not in the US, it will return `US$`.
@@ -14,7 +20,7 @@ function getCurrencyOverride(currency, geoLocation) {
     if (currency === 'USD' && geoLocation && geoLocation !== '' && geoLocation !== 'US') {
         return { symbol: 'US$' };
     }
-    return defaultCurrencyOverrides[currency];
+    return currencies_ts_1.defaultCurrencyOverrides[currency];
 }
 /**
  * Returns a valid currency code based on a shortlist of currency codes.
@@ -25,8 +31,8 @@ function getCurrencyOverride(currency, geoLocation) {
  */
 function getValidCurrency(currency, geoLocation) {
     if (!getCurrencyOverride(currency, geoLocation)) {
-        debug(`getValidCurrency was called with a non-existent currency "${currency}"; falling back to ${FALLBACK_CURRENCY}`);
-        return FALLBACK_CURRENCY;
+        debug(`getValidCurrency was called with a non-existent currency "${currency}"; falling back to ${constants_ts_1.FALLBACK_CURRENCY}`);
+        return constants_ts_1.FALLBACK_CURRENCY;
     }
     return currency;
 }
@@ -75,7 +81,7 @@ function getCurrencyFormatter({ number, currency, browserSafeLocale, forceLatin 
         }),
         ...(signForPositive && { signDisplay: 'exceptZero' }),
     };
-    return getCachedFormatter({
+    return (0, get_cached_formatter_ts_1.getCachedFormatter)({
         locale,
         options: numberFormatOptions,
     });
@@ -204,6 +210,7 @@ const numberFormatCurrency = ({ number, browserSafeLocale, currency, stripZeros,
         }
     }, '');
 };
+exports.numberFormatCurrency = numberFormatCurrency;
 /**
  * Returns a formatted price object which can be used to manually render a
  * formatted currency (eg: if you wanted to render the currency symbol in a
@@ -314,4 +321,4 @@ const getCurrencyObject = ({ number, browserSafeLocale, currency, stripZeros, is
         hasNonZeroFraction,
     };
 };
-export { numberFormatCurrency, getCurrencyObject };
+exports.getCurrencyObject = getCurrencyObject;
