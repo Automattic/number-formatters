@@ -1,7 +1,7 @@
 import { getSettings } from '@wordpress/date';
-import { FALLBACK_LOCALE } from './constants.js';
-import { numberFormatCurrency, getCurrencyObject as getCurrencyObjectFromCurrencyFormatter, } from './number-format-currency/index.js';
-import { numberFormat, numberFormatCompact } from './number-format.js';
+import { FALLBACK_LOCALE } from "./constants.js";
+import { numberFormatCurrency, getCurrencyObject as getCurrencyObjectFromCurrencyFormatter, } from "./number-format-currency/index.js";
+import { numberFormat, numberFormatCompact } from "./number-format.js";
 /**
  * Creates a NumberFormatters instance that provides number and currency formatting functionality with locale awareness
  * @return {NumberFormatters} A NumberFormatters instance

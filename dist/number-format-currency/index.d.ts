@@ -1,4 +1,4 @@
-import type { CurrencyObject, NumberFormatCurrencyParams } from '../types.js';
+import type { CurrencyObject, NumberFormatCurrencyParams } from '../types.ts';
 /**
  * Formats money with a given currency code.
  *

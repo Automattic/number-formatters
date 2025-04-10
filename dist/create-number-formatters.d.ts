@@ -1,4 +1,4 @@
-import type { FormatCurrency, FormatNumber, GetCurrencyObject } from './types.js';
+import type { FormatCurrency, FormatNumber, GetCurrencyObject } from './types.ts';
 export interface NumberFormatters {
     /**
      * Sets the locale for number formatting

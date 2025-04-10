@@ -1,4 +1,4 @@
-import { getCachedFormatter } from './get-cached-formatter.js';
+import { getCachedFormatter } from "./get-cached-formatter.js";
 /**
  * Formats numbers using locale settings and/or passed options.
  * @param  params                     - The parameters for the number formatter.

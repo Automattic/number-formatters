@@ -1,7 +1,7 @@
 import debugFactory from 'debug';
-import { FALLBACK_CURRENCY } from '../constants.js';
-import { getCachedFormatter } from '../get-cached-formatter.js';
-import { defaultCurrencyOverrides } from './currencies.js';
+import { FALLBACK_CURRENCY } from "../constants.js";
+import { getCachedFormatter } from "../get-cached-formatter.js";
+import { defaultCurrencyOverrides } from "./currencies.js";
 const debug = debugFactory('number-formatters:number-format-currency');
 /**
  * Retrieves the currency override for a given currency.

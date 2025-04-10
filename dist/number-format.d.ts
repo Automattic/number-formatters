@@ -1,4 +1,4 @@
-import type { NumberFormatParams } from './types.js';
+import type { NumberFormatParams } from './types.ts';
 /**
  * Formats numbers using locale settings and/or passed options.
  * @param  params                     - The parameters for the number formatter.
