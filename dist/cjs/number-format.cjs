@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.numberFormatCompact = exports.numberFormat = void 0;
-const get_cached_formatter_ts_1 = require("./get-cached-formatter.js");
+const get_cached_formatter_ts_1 = require("./get-cached-formatter.cjs");
 /**
  * Formats numbers using locale settings and/or passed options.
  * @param  params                     - The parameters for the number formatter.

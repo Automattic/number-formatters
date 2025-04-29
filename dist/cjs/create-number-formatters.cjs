@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const date_1 = require("@wordpress/date");
-const constants_ts_1 = require("./constants.js");
-const index_ts_1 = require("./number-format-currency/index.js");
-const number_format_ts_1 = require("./number-format.js");
+const constants_ts_1 = require("./constants.cjs");
+const index_ts_1 = require("./number-format-currency/index.cjs");
+const number_format_ts_1 = require("./number-format.cjs");
 /**
  * Creates a NumberFormatters instance that provides number and currency formatting functionality with locale awareness
  * @return {NumberFormatters} A NumberFormatters instance
