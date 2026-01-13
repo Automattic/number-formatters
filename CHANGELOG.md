@@ -8,9 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 This is an alpha version! The changes listed here are not final.
 
-### Changed
-- =
-
 ## [1.0.15] - 2025-11-17
 ### Changed
 - Update package dependencies. [#45958]
