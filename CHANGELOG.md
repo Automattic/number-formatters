@@ -4,12 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [1.0.18-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [1.0.18] - 2026-02-18
 ### Changed
-- Set `.repository.url` in `package.json` to the mirror repo rather than the monorepo. Required for enabling provenance.
+- Set `.repository.url` in `package.json` to the mirror repo rather than the monorepo. [#47149]
 
 ## [1.0.17] - 2026-02-12
 ### Changed
@@ -108,7 +105,7 @@ This is an alpha version! The changes listed here are not final.
 - Initial release
 - Basic number formatting functionality
 
-[1.0.18-alpha]: https://github.com/Automattic/number-formatters/compare/1.0.17...1.0.18-alpha
+[1.0.18]: https://github.com/Automattic/number-formatters/compare/1.0.17...1.0.18
 [1.0.17]: https://github.com/Automattic/number-formatters/compare/1.0.16...1.0.17
 [1.0.16]: https://github.com/Automattic/number-formatters/compare/1.0.15...1.0.16
 [1.0.15]: https://github.com/Automattic/number-formatters/compare/1.0.14...1.0.15
