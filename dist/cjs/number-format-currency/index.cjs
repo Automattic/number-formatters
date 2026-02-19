@@ -317,6 +317,7 @@ const getCurrencyObject = ({ number, browserSafeLocale, currency, stripZeros, is
         integer,
         fraction,
         hasNonZeroFraction,
+        floatValue: numberAsFloat,
     };
 };
 exports.getCurrencyObject = getCurrencyObject;
