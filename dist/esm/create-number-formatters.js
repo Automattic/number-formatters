@@ -1,4 +1,3 @@
-import { getSettings } from '@wordpress/date';
 import { FALLBACK_LOCALE } from "./constants.js";
 import { numberFormatCurrency, getCurrencyObject as getCurrencyObjectFromCurrencyFormatter, } from "./number-format-currency/index.js";
 import { numberFormat, numberFormatCompact } from "./number-format.js";
@@ -29,9 +28,13 @@ function createNumberFormatters() {
      * @return {string} The locale to use for formatting.
      */
     const getBrowserSafeLocale = () => {
-        const { l10n: { locale: localeFromUserSettings }, } = getSettings();
+        // Accessing the user's locale from `@wordpress/date` package.
+        // This is a bit hacky but it's better than importing `@wordpress/date` and using its `getSettings` function,
+        // because it drags moment.js with it even though we don't need it here.
+        const localeFromUserSettings = typeof window !== 'undefined' ? window.wp?.date?.getSettings?.()?.l10n?.locale : undefined;
+        const localeFromNavigator = typeof window !== 'undefined' ? window?.navigator?.language : undefined;
         return (localeState ??
-            (localeFromUserSettings || global?.window?.navigator?.language) ??
+            (localeFromUserSettings || localeFromNavigator) ??
             FALLBACK_LOCALE).split('_')[0];
     };
     const setGeoLocation = (geoLocation) => {

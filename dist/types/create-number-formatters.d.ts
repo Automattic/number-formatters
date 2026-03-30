@@ -1,4 +1,17 @@
 import type { FormatCurrency, FormatNumber, GetCurrencyObject } from './types.ts';
+declare global {
+    interface Window {
+        wp?: {
+            date?: {
+                getSettings?: () => {
+                    l10n?: {
+                        locale?: string;
+                    };
+                };
+            };
+        };
+    }
+}
 export interface NumberFormatters {
     /**
      * Sets the locale for number formatting
