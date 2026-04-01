@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 This is an alpha version! The changes listed here are not final.
 
+### Changed
+- Update package dependencies.
+
 ### Fixed
 - number-formatters imported @wordpress/date which imports moment.js. But numbers-formatters only needs the settings from wp.date. This change makes it so we access the settings directly.
 
