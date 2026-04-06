@@ -4,15 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [1.1.4-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [1.1.4] - 2026-04-06
 ### Changed
-- Update package dependencies.
+- Update package dependencies. [#47887]
 
 ### Fixed
-- number-formatters imported @wordpress/date which imports moment.js. But numbers-formatters only needs the settings from wp.date. This change makes it so we access the settings directly.
+- Access wp.date settings directly. [#47812]
 
 ## [1.1.3] - 2026-03-30
 ### Changed
@@ -131,7 +128,7 @@ This is an alpha version! The changes listed here are not final.
 - Initial release
 - Basic number formatting functionality
 
-[1.1.4-alpha]: https://github.com/Automattic/number-formatters/compare/1.1.3...1.1.4-alpha
+[1.1.4]: https://github.com/Automattic/number-formatters/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/Automattic/number-formatters/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/Automattic/number-formatters/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/Automattic/number-formatters/compare/1.1.0...1.1.1
