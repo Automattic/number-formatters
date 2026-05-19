@@ -85,6 +85,35 @@ function getCurrencyFormatter({ number, currency, browserSafeLocale, forceLatin 
     });
 }
 /**
+ * Smallest-unit exponent overrides for currencies where browser ICU's
+ * `maximumFractionDigits` disagrees with the API's smallest-unit encoding.
+ *
+ * Keep this list minimal — the backend is the source of truth for the API's
+ * smallest-unit encoding, so adding speculative entries here risks silent
+ * drift. Only add a currency once we've verified that browsers report a
+ * value the API does not use.
+ *
+ * - IDR: modern Chrome / Node 24+ ICU reports 0; the API encodes with exponent 2.
+ * - HUF: same browser/API divergence as IDR.
+ */
+const SMALLEST_UNIT_EXPONENT_OVERRIDES = {
+    IDR: 2,
+    HUF: 2,
+};
+/**
+ * Returns the smallest unit exponent for a currency.
+ *
+ * Falls back to the browser-derived display precision for any currency not in
+ * the override map — i.e. existing behavior is preserved for everything except
+ * the explicitly listed currencies.
+ * @param currency - The currency code (ISO 4217)
+ * @param fallback - The browser-derived precision to use when no override applies
+ * @return number  - The smallest unit exponent
+ */
+function getSmallestUnitExponent(currency, fallback) {
+    return SMALLEST_UNIT_EXPONENT_OVERRIDES[currency] ?? fallback;
+}
+/**
  * Returns the precision for a given locale and currency.
  * @param  browserSafeLocale - The browser safe locale.
  * @param  currency          - The currency to get the precision for.
@@ -119,14 +148,12 @@ function scaleNumberForPrecision(number, currencyPrecision) {
 /**
  * Prepares a number for formatting.
  * @param  number            - The number to prepare.
- * @param  currencyPrecision - The precision to prepare the number for.
+ * @param  currencyPrecision - The display precision (from the browser) to round the result to.
+ * @param  currency          - The currency code, used to look up any smallest-unit exponent override.
  * @param  isSmallestUnit    - Whether the number is the smallest unit of a currency.
  * @return {number} The prepared number.
  */
-function prepareNumberForFormatting(number, 
-// currencyPrecision here must be the precision of the currency, regardless
-// of what precision is requested for display!
-currencyPrecision, isSmallestUnit) {
+function prepareNumberForFormatting(number, currencyPrecision, currency, isSmallestUnit) {
     if (isNaN(number)) {
         debug('formatCurrency was called with NaN');
         return 0;
@@ -135,7 +162,7 @@ currencyPrecision, isSmallestUnit) {
         if (!Number.isInteger(number)) {
             debug('formatCurrency was called with isSmallestUnit and a float which will be rounded', number);
         }
-        const smallestUnitDivisor = 10 ** currencyPrecision;
+        const smallestUnitDivisor = 10 ** getSmallestUnitExponent(currency, currencyPrecision);
         return scaleNumberForPrecision(Math.round(number) / smallestUnitDivisor, currencyPrecision);
     }
     return scaleNumberForPrecision(number, currencyPrecision);
@@ -186,7 +213,7 @@ const numberFormatCurrency = ({ number, browserSafeLocale, currency, stripZeros,
     if (isSmallestUnit && typeof currencyPrecision === 'undefined') {
         throw new Error(`Could not determine currency precision for ${validCurrency} in ${browserSafeLocale}`);
     }
-    const numberAsFloat = prepareNumberForFormatting(number, currencyPrecision ?? 0, isSmallestUnit);
+    const numberAsFloat = prepareNumberForFormatting(number, currencyPrecision ?? 0, validCurrency, isSmallestUnit);
     const formatter = getCurrencyFormatter({
         number: numberAsFloat,
         currency: validCurrency,
@@ -259,7 +286,7 @@ const getCurrencyObject = ({ number, browserSafeLocale, currency, stripZeros, is
     const validCurrency = getValidCurrency(currency, geoLocation);
     const currencyOverride = getCurrencyOverride(validCurrency, geoLocation);
     const currencyPrecision = getPrecisionForLocaleAndCurrency(browserSafeLocale, validCurrency, forceLatin);
-    const numberAsFloat = prepareNumberForFormatting(number, currencyPrecision ?? 0, isSmallestUnit);
+    const numberAsFloat = prepareNumberForFormatting(number, currencyPrecision ?? 0, validCurrency, isSmallestUnit);
     const formatter = getCurrencyFormatter({
         number: numberAsFloat,
         currency: validCurrency,
