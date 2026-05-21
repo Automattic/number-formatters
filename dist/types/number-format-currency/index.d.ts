@@ -36,9 +36,10 @@ import type { CurrencyObject, NumberFormatCurrencyParams } from '../types.ts';
  * @param  params.signForPositive   - Whether to show the sign for positive numbers.
  * @param  params.geoLocation       - The geo location of the user.
  * @param  params.forceLatin        - Whether to force the latin locale.
+ * @param  params.currencyOverrides - Dynamic per-currency overrides supplied by the host application.
  * @return {string} A formatted string.
  */
-declare const numberFormatCurrency: ({ number, browserSafeLocale, currency, stripZeros, isSmallestUnit, signForPositive, geoLocation, forceLatin, }: NumberFormatCurrencyParams) => string;
+declare const numberFormatCurrency: ({ number, browserSafeLocale, currency, stripZeros, isSmallestUnit, signForPositive, geoLocation, forceLatin, currencyOverrides, }: NumberFormatCurrencyParams) => string;
 /**
  * Returns a formatted price object which can be used to manually render a
  * formatted currency (eg: if you wanted to render the currency symbol in a
@@ -83,7 +84,8 @@ declare const numberFormatCurrency: ({ number, browserSafeLocale, currency, stri
  * @param  params.signForPositive   - Whether to show the sign for positive numbers.
  * @param  params.geoLocation       - The geo location of the user.
  * @param  params.forceLatin        - Whether to force the latin locale.
+ * @param  params.currencyOverrides - Dynamic per-currency overrides supplied by the host application.
  * @return {CurrencyObject} A formatted string e.g. { symbol:'$', integer: '$99', fraction: '.99', sign: '-' }
  */
-declare const getCurrencyObject: ({ number, browserSafeLocale, currency, stripZeros, isSmallestUnit, signForPositive, geoLocation, forceLatin, }: NumberFormatCurrencyParams) => CurrencyObject;
+declare const getCurrencyObject: ({ number, browserSafeLocale, currency, stripZeros, isSmallestUnit, signForPositive, geoLocation, forceLatin, currencyOverrides, }: NumberFormatCurrencyParams) => CurrencyObject;
 export { numberFormatCurrency, getCurrencyObject };

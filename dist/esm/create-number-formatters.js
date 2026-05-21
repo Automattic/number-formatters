@@ -8,6 +8,7 @@ import { numberFormat, numberFormatCompact } from "./number-format.js";
 function createNumberFormatters() {
     let localeState;
     let geoLocationState;
+    let currencyOverridesState;
     const setLocale = (locale) => {
         /**
          * The `Intl.NumberFormat` constructor fails only when there is a variant, divided by `_`.
@@ -15,6 +16,9 @@ function createNumberFormatters() {
          * should all be valid inputs for the constructor.
          */
         localeState = locale;
+    };
+    const setCurrencyOverrides = (overrides) => {
+        currencyOverridesState = overrides;
     };
     /**
      * Returns the locale defined on the module instance (through `setLocale`)
@@ -78,6 +82,7 @@ function createNumberFormatters() {
             signForPositive,
             geoLocation: geoLocationState,
             forceLatin,
+            currencyOverrides: currencyOverridesState,
         });
     };
     const getCurrencyObject = (number, currency, { stripZeros = false, isSmallestUnit = false, signForPositive = false, forceLatin = true } = {}) => {
@@ -90,11 +95,13 @@ function createNumberFormatters() {
             signForPositive,
             geoLocation: geoLocationState,
             forceLatin,
+            currencyOverrides: currencyOverridesState,
         });
     };
     return {
         setLocale,
         setGeoLocation,
+        setCurrencyOverrides,
         formatNumber,
         formatNumberCompact,
         formatCurrency,
