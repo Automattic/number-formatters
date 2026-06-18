@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.2.4-alpha] - unreleased
+
+This is an alpha version! The changes listed here are not final.
+
+### Changed
+- Update package dependencies.
+
 ## [1.2.3] - 2026-06-15
 ### Changed
 - Update package dependencies. [#49631]
@@ -168,6 +175,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Initial release
 - Basic number formatting functionality
 
+[1.2.4-alpha]: https://github.com/Automattic/number-formatters/compare/1.2.3...1.2.4-alpha
 [1.2.3]: https://github.com/Automattic/number-formatters/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/Automattic/number-formatters/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/Automattic/number-formatters/compare/1.2.0...1.2.1
