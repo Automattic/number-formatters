@@ -297,6 +297,6 @@ interface NumberFormatters {
 declare function createNumberFormatters(): NumberFormatters;
 //#endregion
 //#region src/index.d.ts
-declare const setLocale: (locale: string) => void, setGeoLocation: (geoLocation: string) => void, setCurrencyOverrides: (overrides: Record<string, CurrencyOverride>) => void, formatNumber: FormatNumber, formatNumberCompact: FormatNumber, formatCurrency: FormatCurrency, getCurrencyObject: GetCurrencyObject;
+export declare const setLocale: (locale: string) => void, setGeoLocation: (geoLocation: string) => void, setCurrencyOverrides: (overrides: Record<string, CurrencyOverride>) => void, formatNumber: FormatNumber, formatNumberCompact: FormatNumber, formatCurrency: FormatCurrency, getCurrencyObject: GetCurrencyObject;
 //#endregion
-export { type CurrencyObject, type CurrencyOverride, type FormatCurrency, type FormatNumber, type GetCurrencyObject, type NumberFormatCurrencyParams, type NumberFormatParams, createNumberFormatters, formatCurrency, formatNumber, formatNumberCompact, getCurrencyObject, setCurrencyOverrides, setGeoLocation, setLocale };
+export { type CurrencyObject, type CurrencyOverride, type FormatCurrency, type FormatNumber, type GetCurrencyObject, type NumberFormatCurrencyParams, type NumberFormatParams, createNumberFormatters };
