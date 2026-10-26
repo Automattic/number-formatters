@@ -1,4 +1,3 @@
-//#region src/types.d.ts
 interface NumberFormatParams {
   /**
    * Browser-safe locale string that works with Intl.NumberFormat e.g. 'en-US' (not 'en_US').
@@ -141,8 +140,6 @@ interface CurrencyObject {
 type FormatNumber = (number: number, options?: Omit<NumberFormatParams, 'browserSafeLocale'>) => string;
 type FormatCurrency = (number: number, currency: string, options?: Omit<NumberFormatCurrencyParams, 'number' | 'currency' | 'browserSafeLocale' | 'geoLocation' | 'currencyOverrides'>) => string;
 type GetCurrencyObject = (number: number, currency: string, options?: Omit<NumberFormatCurrencyParams, 'number' | 'currency' | 'browserSafeLocale' | 'geoLocation' | 'currencyOverrides'>) => CurrencyObject;
-//#endregion
-//#region src/create-number-formatters.d.ts
 declare global {
   interface Window {
     wp?: {
@@ -295,8 +292,5 @@ interface NumberFormatters {
  * @return {NumberFormatters} A NumberFormatters instance
  */
 declare function createNumberFormatters(): NumberFormatters;
-//#endregion
-//#region src/index.d.ts
 export declare const setLocale: (locale: string) => void, setGeoLocation: (geoLocation: string) => void, setCurrencyOverrides: (overrides: Record<string, CurrencyOverride>) => void, formatNumber: FormatNumber, formatNumberCompact: FormatNumber, formatCurrency: FormatCurrency, getCurrencyObject: GetCurrencyObject;
-//#endregion
 export { type CurrencyObject, type CurrencyOverride, type FormatCurrency, type FormatNumber, type GetCurrencyObject, type NumberFormatCurrencyParams, type NumberFormatParams, createNumberFormatters };

@@ -1,6 +1,6 @@
 import "@wordpress/date";
 import debugFactory from "debug";
-//#region src/get-cached-formatter.ts
+// src/get-cached-formatter.ts
 const debug$1 = debugFactory("number-formatters:get-cached-formatter");
 const formatterCache = /* @__PURE__ */ new Map();
 /**
@@ -26,8 +26,7 @@ function getCachedFormatter({ locale, fallbackLocale = "en", options, retries = 
 		throw error;
 	}
 }
-//#endregion
-//#region src/number-format-currency/currencies.ts
+// src/number-format-currency/currencies.ts
 const defaultCurrencyOverrides = {
 	AED: { symbol: "د.إ.‏" },
 	AFN: { symbol: "؋" },
@@ -191,8 +190,7 @@ const defaultCurrencyOverrides = {
 	ZMW: { symbol: "ZK" },
 	WON: { symbol: "₩" }
 };
-//#endregion
-//#region src/number-format-currency/index.ts
+// src/number-format-currency/index.ts
 const debug = debugFactory("number-formatters:number-format-currency");
 /**
 * Retrieves the currency override for a given currency.
@@ -527,8 +525,7 @@ const getCurrencyObject$1 = ({ number, browserSafeLocale, currency, stripZeros, 
 		floatValue: numberAsFloat
 	};
 };
-//#endregion
-//#region src/number-format.ts
+// src/number-format.ts
 /**
 * Formats numbers using locale settings and/or passed options.
 * @param  params                     - The parameters for the number formatter.
@@ -565,8 +562,7 @@ const numberFormatCompact = ({ numberFormatOptions = {}, ...params }) => numberF
 		...numberFormatOptions
 	}
 });
-//#endregion
-//#region src/create-number-formatters.ts
+// src/create-number-formatters.ts
 /**
 * Creates a NumberFormatters instance that provides number and currency formatting functionality with locale awareness
 * @return {NumberFormatters} A NumberFormatters instance
@@ -666,5 +662,4 @@ function createNumberFormatters() {
 	};
 }
 const { setLocale, setGeoLocation, setCurrencyOverrides, formatNumber, formatNumberCompact, formatCurrency, getCurrencyObject } = createNumberFormatters();
-//#endregion
 export { createNumberFormatters, formatCurrency, formatNumber, formatNumberCompact, getCurrencyObject, setCurrencyOverrides, setGeoLocation, setLocale };
