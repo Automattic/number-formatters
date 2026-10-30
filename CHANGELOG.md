@@ -11,6 +11,9 @@ This is an alpha version! The changes listed here are not final.
 ### Added
 - Add a `decimals` option to `formatCurrency()` and `getCurrencyObject()` to show a fixed number of decimals.
 
+### Changed
+- Update package dependencies.
+
 ## [1.2.12] - 2026-10-20
 ### Changed
 - Internal updates.
