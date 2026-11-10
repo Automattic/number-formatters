@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.1-alpha] - unreleased
+
+This is an alpha version! The changes listed here are not final.
+
+### Changed
+- Update package dependencies.
+
 ## [1.3.0] - 2026-11-02
 ### Added
 - Add a `decimals` option to `formatCurrency()` and `getCurrencyObject()` to show a fixed number of decimals. [#54140]
@@ -211,6 +218,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Initial release
 - Basic number formatting functionality
 
+[1.3.1-alpha]: https://github.com/Automattic/number-formatters/compare/1.3.0...1.3.1-alpha
 [1.3.0]: https://github.com/Automattic/number-formatters/compare/1.2.12...1.3.0
 [1.2.12]: https://github.com/Automattic/number-formatters/compare/1.2.11...1.2.12
 [1.2.11]: https://github.com/Automattic/number-formatters/compare/1.2.10...1.2.11
