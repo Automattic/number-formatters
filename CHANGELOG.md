@@ -4,12 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [1.3.2-alpha] - unreleased
-
-This is an alpha version! The changes listed here are not final.
-
+## [1.3.2] - 2026-11-17
 ### Fixed
-- Currency formatting: Add the current ISO 4217 codes BYN, MRU, SLE, SSP, STN, VES, XCG and ZWG so they no longer fall back to USD.
+- Currency formatting: Add the current ISO 4217 codes BYN, MRU, SLE, SSP, STN, VES, XCG and ZWG so they no longer fall back to USD. [#54978]
 
 ## [1.3.1] - 2026-11-16
 ### Changed
@@ -222,7 +219,7 @@ This is an alpha version! The changes listed here are not final.
 - Initial release
 - Basic number formatting functionality
 
-[1.3.2-alpha]: https://github.com/Automattic/number-formatters/compare/1.3.1...1.3.2-alpha
+[1.3.2]: https://github.com/Automattic/number-formatters/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/Automattic/number-formatters/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/Automattic/number-formatters/compare/1.2.12...1.3.0
 [1.2.12]: https://github.com/Automattic/number-formatters/compare/1.2.11...1.2.12
